@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jupiter Pool Service</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:1.6;
+    color:#333;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+header{
+    background:#0057b8;
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1rem 0;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    gap:1.5rem;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+}
+
+.btn{
+    display:inline-block;
+    background:#0a84ff;
+    color:white;
+    padding:12px 24px;
+    border-radius:5px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#0067d6;
+}
+
+.hero{
+    background:url("https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&w=1400&q=80")
+    center/cover;
+    min-height:70vh;
+
+    display:flex;
+    align-items:center;
+    color:white;
+}
+
+.hero-overlay{
+    background:rgba(0,0,0,.55);
+    width:100%;
+    padding:80px 0;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:1rem;
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:1.5rem;
+}
+
+.section{
+    padding:70px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:2rem;
+    color:#0057b8;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card h3{
+    color:#0057b8;
+    margin-bottom:10px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.feature{
+    background:#f5f7fa;
+    padding:20px;
+    border-radius:8px;
+    text-align:center;
+}
+
+.service-area{
+    background:#f5f7fa;
+}
+
+.area-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    text-align:center;
+}
+
+.area{
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.contact{
+    background:#0057b8;
+    color:white;
+    text-align:center;
+}
+
+.contact h2{
+    margin-bottom:15px;
+}
+
+.contact p{
+    margin-bottom:20px;
+}
+
+.phone{
+    font-size:2rem;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+footer{
+    background:#003a78;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2rem;
+}
+
+.navbar{
+    flex-direction:column;
+    gap:15px;
+}
+
+.nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container navbar">
+<div class="logo">Jupiter Pool Service</div>
+
+<nav class="nav-links">
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#about">About</a>
+<a href="#blog">Blog</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+
+<section class="hero" id="home">
+<div class="hero-overlay">
+<div class="container">
+
+<h1>Pool Cleaning, Repair & Maintenance</h1>
+
+<p>
+Professional pool care services in Jupiter and surrounding areas.
+Keep your pool clean, safe, and ready to enjoy all year long.
+</p>
+
+<a href="#contact" class="btn">Get Free Estimate</a>
+
+</div>
+</div>
+</section>
+
+<section class="section" id="services">
+
+<div class="container">
+
+<h2 class="section-title">Our Services</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1576013551627-0cf7d3f31f0f?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>Pool Cleaning</h3>
+<p>
+Regular pool cleaning, water balancing, debris removal,
+and routine inspections.
+</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>Pool Repair</h3>
+<p>
+Pump repair, filter replacement, leak detection,
+equipment diagnostics and troubleshooting.
+</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>Pool Maintenance</h3>
+<p>
+Preventive maintenance programs to keep your pool
+running efficiently all year.
+</p>
+</div>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">Why Choose Us</h2>
+
+<div class="features">
+
+<div class="feature">
+<h3>Experienced Team</h3>
+<p>Professional and dependable service.</p>
+</div>
+
+<div class="feature">
+<h3>Fast Response</h3>
+<p>Quick scheduling and support.</p>
+</div>
+
+<div class="feature">
+<h3>Affordable Pricing</h3>
+<p>Competitive rates with quality results.</p>
+</div>
+
+<div class="feature">
+<h3>Customer Satisfaction</h3>
+<p>Focused on long-term client relationships.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section service-area">
+
+<div class="container">
+
+<h2 class="section-title">Service Areas</h2>
+
+<div class="area-grid">
+
+<div class="area">Jupiter</div>
+<div class="area">Palm Beach Gardens</div>
+<div class="area">Tequesta</div>
+<div class="area">Juno Beach</div>
+<div class="area">West Palm Beach</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="blog">
+
+<div class="container">
+
+<h2 class="section-title">Pool Tips & Resources</h2>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-content">
+<h3>Seasonal Pool Checkups</h3>
+<p>
+Prepare your pool for every season with routine inspections
+and maintenance.
+</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+<h3>Pool Maintenance FAQ</h3>
+<p>
+Answers to common questions about pool ownership,
+cleaning and upkeep.
+</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+<h3>Spring Pool Opening Tips</h3>
+<p>
+Helpful steps for opening your pool safely and efficiently.
+</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section contact" id="contact">
+
+<div class="container">
+
+<h2>Need Pool Service Today?</h2>
+
+<p>
+Call us today for pool cleaning, repairs, and maintenance.
+</p>
+
+<div class="phone">561-203-1900</div>
+
+<a href="tel:5612031900" class="btn">
+Call Now
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 Jupiter Pool Service. All Rights Reserved.
+</p>
+
+</footer>
+
+</body>
+</html>
