@@ -200,6 +200,47 @@ header{
     align-items:center;
     gap:8px;
 }
+
+    .top-bar{
+    background:#003a78;
+    text-align:center;
+    padding:12px 0;
+}
+
+.navbar{
+    background:#fff;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 50px;
+
+    border-bottom:1px solid #e5e5e5;
+}
+
+.logo{
+    color:#0057b8;
+    font-size:1.4rem;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.nav-menu{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+.nav-menu a{
+    color:#333;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.hamburger{
+    display:none;
+}
     
 
 footer{
@@ -240,9 +281,30 @@ footer{
                 <i class="fa-solid fa-phone"></i>
                 561-203-1900
             </div>
-
         </div>
     </div>
+    
+    <!-- Nav Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            JUPITER POOL CLEANERS
+        </div>
+
+        <ul class="nav-menu">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">SERVICES</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">BLOG</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+
+        <button class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+
+</header>
+
 
 <div class="container navbar">
 <div class="logo">Jupiter Pool Service</div>
