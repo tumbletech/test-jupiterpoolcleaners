@@ -1,536 +1,1106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jupiter Pool Service</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    line-height:1.6;
-    color:#333;
-}
-
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
-
-header{
-    background:#0057b8;
-    color:white;
-    position:sticky;
-    top:0;
-    z-index:100;
-}
-
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:1rem 0;
-}
-
-.logo{
-    font-size:1.5rem;
-    font-weight:bold;
-}
-
-.nav-links{
-    display:flex;
-    gap:1.5rem;
-}
-
-.nav-links a{
-    color:white;
-    text-decoration:none;
-}
-
-.btn{
-    display:inline-block;
-    background:#0a84ff;
-    color:white;
-    padding:12px 24px;
-    border-radius:5px;
-    text-decoration:none;
-    transition:.3s;
-}
-
-.btn:hover{
-    background:#0067d6;
-}
-
-.hero{
-    background:url("https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&w=1400&q=80")
-    center/cover;
-    min-height:70vh;
-
-    display:flex;
-    align-items:center;
-    color:white;
-}
-
-.hero-overlay{
-    background:rgba(0,0,0,.55);
-    width:100%;
-    padding:80px 0;
-}
-
-.hero h1{
-    font-size:3rem;
-    margin-bottom:1rem;
-}
-
-.hero p{
-    font-size:1.2rem;
-    margin-bottom:1.5rem;
-}
-
-.section{
-    padding:70px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:2rem;
-    color:#0057b8;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:white;
-    border-radius:8px;
-    overflow:hidden;
-    box-shadow:0 2px 10px rgba(0,0,0,.1);
-}
-
-.card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.card-content{
-    padding:20px;
-}
-
-.card h3{
-    color:#0057b8;
-    margin-bottom:10px;
-}
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.feature{
-    background:#f5f7fa;
-    padding:20px;
-    border-radius:8px;
-    text-align:center;
-}
-
-.service-area{
-    background:#f5f7fa;
-}
-
-.area-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    text-align:center;
-}
-
-.area{
-    background:white;
-    padding:20px;
-    border-radius:8px;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-}
-
-.contact{
-    background:#0057b8;
-    color:white;
-    text-align:center;
-}
-
-.contact h2{
-    margin-bottom:15px;
-}
-
-.contact p{
-    margin-bottom:20px;
-}
-
-.phone{
-    font-size:2rem;
-    font-weight:bold;
-    margin-bottom:20px;
-}
-.top-bar{
-    background:#003a78;
-    padding:12px 0;
-    text-align:center;
-}
-
-.top-bar a{
-    color:#fff;
-    text-decoration:none;
-    font-size:1rem;
-    font-weight:600;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-}
-
-    .top-bar{
-    background:#003a78;
-    text-align:center;
-    padding:12px 0;
-}
-
-.navbar{
-    background:#fff;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:20px 50px;
-
-    border-bottom:1px solid #e5e5e5;
-}
-
-.logo{
-    color:#0057b8;
-    font-size:1.4rem;
-    font-weight:700;
-    letter-spacing:2px;
-}
-
-.nav-menu{
-    display:flex;
-    gap:35px;
-    list-style:none;
-}
-
-.nav-menu a{
-    color:#333;
-    text-decoration:none;
-    font-weight:600;
-}
-
-.hamburger{
-    display:none;
-}
+    <title>Jupiter Pool Service</title>
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-footer{
-    background:#003a78;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-    @media (max-width: 991px){
+    <style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        font-family:Arial, Helvetica, sans-serif;
+        line-height:1.6;
+        color:#333;
+    }
+
+    .container{
+        width:90%;
+        max-width:1200px;
+        margin:auto;
+    }
+
+    header{
+        background:#0057b8;
+        color:white;
+        position:sticky;
+        top:0;
+        z-index:100;
+    }
 
     .navbar{
-        padding:20px;
-    }
-
-    .nav-menu{
-        display:none;
-    }
-
-    .hamburger{
-        display:block;
-        background:none;
-        border:none;
-        cursor:pointer;
-
-        color:#0057b8;
-        font-size:2rem;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:1rem 0;
     }
 
     .logo{
-        font-size:1.35rem;
+        font-size:1.5rem;
+        font-weight:bold;
     }
 
-}
+    .nav-links{
+        display:flex;
+        gap:1.5rem;
+    }
 
-@media(max-width:768px){
+    .nav-links a{
+        color:white;
+        text-decoration:none;
+    }
 
-.hero h1{
-    font-size:2rem;
-}
+    .btn{
+        display:inline-block;
+        background:#0a84ff;
+        color:white;
+        padding:12px 24px;
+        border-radius:5px;
+        text-decoration:none;
+        transition:.3s;
+    }
 
-.navbar{
-    flex-direction:column;
-    gap:15px;
-}
+    .btn:hover{
+        background:#0067d6;
+    }
 
-.nav-links{
-    flex-wrap:wrap;
-    justify-content:center;
-}
+    .hero{
+        min-height:70vh;
 
-}
-</style>
-</head>
+        display:flex;
+        align-items:center;
+        color:white;
+    }
 
-<body>
+    .hero h1{
+        font-size:3rem;
+        margin-bottom:1rem;
+    }
 
-<header>
-    <!-- Top Contact Bar -->
-    <div class="top-bar">
-        <div class="container">
+    .hero p{
+        font-size:1.2rem;
+        margin-bottom:1.5rem;
+    }
 
-            <div class="top-contact">
-                <i class="fa-solid fa-phone"></i>
-                561-203-1900
+    .section{
+        padding:70px 0;
+    }
+
+    .section-title{
+        text-align:center;
+        margin-bottom:40px;
+        font-size:2rem;
+        color:#0057b8;
+    }
+
+    .cards{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+        gap:25px;
+    }
+
+    .card{
+        background:white;
+        border-radius:8px;
+        overflow:hidden;
+        box-shadow:0 2px 10px rgba(0,0,0,.1);
+    }
+
+    .card img{
+        width:100%;
+        height:220px;
+        object-fit:cover;
+    }
+
+    .card-content{
+        padding:20px;
+    }
+
+    .card h3{
+        color:#0057b8;
+        margin-bottom:10px;
+    }
+
+    .features{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:20px;
+    }
+
+    .feature{
+        background:#f5f7fa;
+        padding:20px;
+        border-radius:8px;
+        text-align:center;
+    }
+
+    .service-area{
+        background:#f5f7fa;
+    }
+
+    .area-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+        gap:20px;
+        text-align:center;
+    }
+
+    .area{
+        background:white;
+        padding:20px;
+        border-radius:8px;
+        box-shadow:0 2px 8px rgba(0,0,0,.08);
+    }
+
+    .contact{
+        background:#0057b8;
+        color:white;
+        text-align:center;
+    }
+
+    .contact h2{
+        margin-bottom:15px;
+    }
+
+    .contact p{
+        margin-bottom:20px;
+    }
+
+    .phone{
+        font-size:2rem;
+        font-weight:bold;
+        margin-bottom:20px;
+    }
+    .top-bar{
+        background:#003a78;
+        padding:12px 0;
+        text-align:center;
+    }
+
+    .top-bar a{
+        color:#fff;
+        text-decoration:none;
+        font-size:1rem;
+        font-weight:600;
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+    }
+
+    .top-bar{
+        background:#003a78;
+        text-align:center;
+        padding:12px 0;
+    }
+
+    .navbar{
+        background:#fff;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:20px 30px;
+        border-bottom:1px solid #e5e5e5;
+    }
+
+    .logo{
+        color:#0057b8;
+        font-size:1.7rem;
+        font-weight:800;
+        letter-spacing:2px;
+    }
+
+    .hamburger {
+        background:none;
+        border:none;
+        cursor: pointer;
+        font-size: 2rem;
+        color: #0057b8;
+    }
+
+    .nav-menu{
+        display:flex;
+        gap:35px;
+        list-style:none;
+    }
+
+    .nav-menu a{
+        color:#333;
+        text-decoration:none;
+        font-weight:600;
+    }
+
+    .mobile-menu {
+        display: none;
+        background: #ffff;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .mobile-menu.active {
+        display: block;
+    }
+
+    .mobile-menu a {
+        display: block;
+        padding: 15px 30px;
+        text-decoration: none;
+        color: #333;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .mobile-menu a:hover {
+        background: #f8f8f8;
+    }
+
+    .sub-item a {
+        padding-left: 50px;
+        font-size: 0.95rem;
+        color: #333;
+    }
+
+    .hero {
+        background-image: url('assets/img/sp-01-e.jpg');
+        background-size: cover;
+        background-position: center center;
+
+        /* Zoom Effect */
+        transform: scale(1);
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-overlay {
+        position: relative;
+        z-index: 2;
+
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-family: "Noto Sans", sans-serif;
+        font-weight: 600;
+        font-size: 40;
+        line-height: 40px;
+
+        color: #ffffff;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .cards {
+        display: flex;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .card{
+        border:1px solid #ddd;
+        background:#f7f7f7;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .card-title{
+        background:#0057b8;   
+        color:#ffffff !important;           
+
+        padding:15px;
+        margin:0;
+
+        text-align:left;
+        font-family:"Noto Sans", sans-serif;
+        font-weight:700;
+        letter-spacing: 0.5px;
+    }
+
+    .card img{
+        width:100%;
+        display:block;
+    }
+
+    .card-content{
+        padding:20px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .card-content p {
+        font-family: Calibri, Arial, sans-serif;
+        font-size: 15px;
+        
+    }
+
+    .card-content button{
+        background:#0057b8;
+        border:none;
+
+        padding:12px 25px;
+        cursor:pointer;
+    }
+
+    .card-content button a{
+        color:#fff;
+        text-decoration:none;
+        font-weight:600;
+    }
+
+    .read-more-btn{
+        display:block;
+        width: fit-content;
+        background:#0057b8;
+        color:#fff;
+        text-decoration:none;
+
+        padding:12px 25px;
+        font-weight:600;
+
+        margin: 20px auto 0;
+        margin-top: auto;
+    }
+
+    .pool-service-section{
+
+        /* Thick blue divider */
+        border-top:10px solid #1e73be;
+
+        /* AutoCAD Color 9-ish */
+        background:#d9d9d9;
+
+        padding:60px 20px;
+
+        text-align:center;
+    }
+
+    .pool-service-section h1,
+    .pool-service-section h2,
+    .pool-service-section h4{
+        color:#1e73be;
+        font-family:"Noto Sans", sans-serif;
+    }
+
+    .pool-service-section h1{
+        font-size:2.2rem;
+        font-weight:700;
+        margin-bottom:25px;
+    }
+
+    .pool-service-section h4{
+        font-size:1.25rem;
+        font-weight:400;
+        margin-bottom:20px;
+    }
+
+    .pool-service-section h2{
+        font-size:1.8rem;
+        font-weight:700;
+        margin-top:30px;
+    }
+
+    .tips-section {
+        background-color: #fff;
+        padding: 60px 0;
+        margin-top: 60px;
+    }
+
+    .tips-card{
+        display:flex;
+        align-items:flex-start;
+        gap:20px;
+        margin:30px 20px;
+    }
+
+    .tips-image img{
+        width:180px;      
+        height:auto;
+        display:block;
+    }
+
+    .tips-content{
+        flex:1;
+    }
+
+    .tips-content h4{
+        margin:0 0 10px 0;
+        font-size:18px;
+        font-weight:600;
+    }
+
+    .tips-content h4 a{
+        color:#333;             
+        text-decoration:none;   
+        cursor:pointer;
+    }
+
+    .tips-content h4 a:hover{
+        color:#1e73be;           
+    }
+
+    .tips-content p{
+        margin:0;
+        line-height:1.6;
+        color:#333;
+        font-family:Calibri, Arial, sans-serif;
+    }
+
+    .tips-title{
+        background-color:#1e73be;
+        width: calc(100% - 40px);
+        color:#ffffff;
+        font-size:25px;
+        font-weight:700;
+        padding:15px 20px;
+        margin: 0 20px;
+        margin-left:20px;
+        margin-right:20px;
+        box-sizing: border-box;
+    }
+
+    .contact-form{
+    margin:30px 20px;
+    }
+
+    .contact-form input{
+        width:100%;
+        box-sizing:border-box;
+
+        padding:12px;
+        margin-bottom:15px;
+
+        border:1px solid #ccc;
+        border-radius:5px;
+
+        font-size:16px;
+    }
+
+    .captcha-row{
+        margin-bottom:20px;
+    }
+
+    .captcha-row label{
+        display:block;
+        margin-bottom:8px;
+        font-weight:600;
+    }
+
+    .submit-btn{
+        background:#1e73be;
+        color:#fff;
+
+        border:none;
+        border-radius:5px;
+
+        padding:12px 30px;
+
+        cursor:pointer;
+        font-weight:600;
+    }
+
+    .captcha-submit-row{
+        display:flex;
+        justify-content:flex-end;
+        align-items:flex-end;
+
+        gap:15px;
+
+        margin-top:10px;
+    }
+
+    .captcha-group{
+        width:80px;
+    }
+
+    .captcha-group label{
+        display:block;
+        margin-bottom:5px;
+        font-size:14px;
+    }
+
+    .submit-btn{
+        background:#1e73be;
+        color:#fff;
+
+        border:none;
+        border-radius:5px;
+
+        padding:12px 25px;
+
+        cursor:pointer;
+
+        font-weight:600;
+    }
+
+    .footer{
+        background:#1e73be;
+
+        padding:50px 20px;
+
+        color:#fff;
+    }
+
+    .footer-grid{
+        display:flex;
+        gap:50px;
+        justify-content:space-between;
+    }
+
+    .footer-column{
+        flex:1;
+    }
+
+    .footer-column h6{
+        color:#fff;
+
+        font-size:14px;
+
+        font-weight:300;
+
+        letter-spacing:1px;
+
+        margin-bottom:10px;
+
+        text-transform:uppercase;
+    }
+
+    .footer-line{
+        width:100%;
+        height:2px;
+
+        background:#fff;
+
+        margin-bottom:20px;
+    }
+
+    .footer-column a{
+        display:block;
+
+        color:#fff;
+
+        text-decoration:none;
+
+        margin-bottom:8px;
+
+        font-size:14px;
+    }
+
+    .footer-column a:hover{
+        text-decoration:underline;
+    }
+
+    .footer-column p{
+        color:#fff;
+
+        margin-bottom:8px;
+
+        font-size:14px;
+    }
+
+    .footer-line{
+        width:100%;
+        height:2px;
+        background:#fff;
+        margin:10px 0 20px;
+    }
+
+    .contact{
+        font-family:'Poppins', sans-serif;
+    }
+
+    .contact h3{
+        color:#fff;
+        font-size:18px;
+        font-weight:300;
+        text-transform:uppercase;
+        letter-spacing:1px;
+    }
+
+    .contact-texts{
+        padding-left:0;
+        margin-left:0;
+    }
+
+    .footer-col p{
+        margin-left:0;
+    }
+
+    .topic-links{
+        display:grid;
+        grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+        gap:12px 20px;
+    }
+
+    .topic-links a{
+        color:#fff;
+        text-decoration:none;
+    }
+
+    .topic-links a:hover{
+        text-decoration:underline;
+    }
+
+    .contact-info p{
+        margin:0 0 8px 0;
+        padding:0;
+    }
+
+    .contact{
+        background:#1e73be;
+        color:#fff;
+        padding:50px 30px;
+        text-align: left;
+    }
+
+    .footer-columns{
+        display:flex;
+        flex-direction: column;
+        gap:60px;
+        text-align: left;
+    }
+
+    .footer-col{
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer-col h3,
+    .footer-col p,
+    .footer-col a {
+        width: 100%;
+        text-align: left;
+    }
+
+    footer{
+        background:black;
+        color:white;
+        text-align:center;
+        padding:20px;
+    }
+    @media (max-width: 991px){
+
+        .navbar{
+            padding:20px;
+        }
+
+        .nav-menu{
+            display:none;
+        }
+
+        .hamburger{
+            display:block;
+            background:none;
+            border:none;
+            cursor:pointer;
+
+            color:#0057b8;
+            font-size:2rem;
+        }
+
+        .logo{
+            font-size:1.35rem;
+        }
+
+    }
+
+    @media(max-width:768px){
+
+        .hero h1{
+            font-size:2rem;
+        }
+
+        .navbar{
+            flex-direction:column;
+            gap:15px;
+        }
+
+        .nav-links{
+            flex-wrap:wrap;
+            justify-content:center;
+        }
+
+        .cards {
+            flex-direction: column;
+        }
+
+        .card {
+            width: 100%;
+        }
+
+    }
+    </style>
+    </head>
+
+    <body>
+
+        <header>
+            <!-- Top Contact Bar -->
+            <div class="top-bar">
+                <div class="container">
+
+                    <div class="top-contact">
+                        <i class="fa-solid fa-phone"></i>
+                        561-203-1900
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+            
+            <!-- Nav Bar -->
+            <nav class="navbar">
+                <div class="logo">
+                    JUPITER POOL SERVICE
+                </div>
+
+                <button class="hamburger" id="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <ul class="mobile-menu" id="mobileMenu">
+                    <li><a href="#">Services</a></li>
+                    <li class="sub-item"><a href="#">Pool Cleaning</a></li>
+                    <li class="sub-item"><a href="#">Pool Maintenance</a></li>
+                    <li class="sub-item"><a href="#">Pool Pool Repair</a></li>
+                    <li><a href="#">Pool Articles</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Jupiter Pool Services</a></li>
+                    <li><a href="#">Jupiter Pool Maintenance</a></li>
+                    <li><a href="#">Jupiter Pool Repair</a></li>
+                    <li><a href="#">Jupiter Pool Cleaning</a></li>
+                </ul>
+
+                
+            </nav>
+
+        </header>
     
-    <!-- Nav Bar -->
-    <nav class="navbar">
-        <div class="logo">
-            JUPITER POOL CLEANERS
-        </div>
+        <section class="hero">
+            <div class="hero-overlay">
+                <h1>JUPITER POOL SERVICE</h1>
+            </div>
+        </section>  
 
-        <ul class="nav-menu">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">SERVICES</a></li>
-            <li><a href="#">ABOUT</a></li>
-            <li><a href="#">BLOG</a></li>
-            <li><a href="#">CONTACT</a></li>
-        </ul>
+        <section class="section" id="services">
 
-        <button class="hamburger">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-    </nav>
+            <div class="container">
 
-</header>
+                <div class="cards">
+
+                    <div class="card">
+                        <h3 class="card-title">Pool Cleaning</h3>
+                        <img src="/assets/img/sp-02.jpg" alt="Pool Cleaning">
+                            <div class="card-content">
+                                <p>
+                                    When you are seeing white flaky buildup on your swimming pool tile, especially near water flow and at the waterline, it's a sign that
+                                    it just maybe time to to have your pool tile professionally cleaned. Jupiter Pool Cleaners Can Help! Contact us...
+                                </p>
+                                <button class="read-more-btn"><a href="#">Read More</a></button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Pool Repair</h3>
+                        <img src="/assets/img/sp-03.jpg" alt="Pool Repair">
+                            <div class="card-content">
+                                <p>
+                                    Looking for Jupiter, Florida Pool Repair Services? Our Florida Pool Repair Service provides professional and affordable Jupiter pool repairs.
+                                    Our expert Pool services can repair any problem; from the smallest...
+                                </p>
+                                <button class="read-more-btn"><a href="#">Read More</a></button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Pool Maintencance</h3>
+                        <img src="/assets/img/sp-04.jpg" alt="Pool Maintenance">
+                            <div class="card-content">
+                                <p>
+                                    Jupiter Pool Cleaners maintenance is essential because regular pool maintenance is required to make sure that expensive repairs don't come
+                                    up. Although a pool repair will be necessary at some point, regular maintenance...
+                                </p>
+                                <button class="read-more-btn"><a href="#">Read More</a></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <section class="pool-service-section">
+
+            <div class="container">
+
+                <h1>
+                    Pool Service - Maintenance, Repairs, Upgrades, and More!
+                </h1>
+
+                <h4>
+                    We offer a wide variety of pool cleaning, pool maintenance,
+                    and pool repair services!
+                </h4>
+
+                <h4>
+                    Questions? Ready to start your first service?
+                </h4>
+
+                <h2>
+                    Call 561-203-1900 or contact us today
+                </h2>
+
+            </div>
+
+        </section>
+
+        <section class="tips-section">
+
+            <div class="container">
+
+                <h2 class="tips-title">
+                    Pool Cleaning and Maintenance Tips and More!
+                </h2>
+
+                <div class="tips-card">
+
+                    <a href="#" class="tips-image">
+                        <img src="assets/img/sp-05.jpg" alt="Seasonal Pool Checkups">
+                    </a>
+
+                    <div class="tips-content">
+
+                        <h4>
+                            <a href="#">
+                                Seasonal Pool Checkups
+                            </a>
+                        </h4>
+
+                        <p>
+                            O-Rings... There are many items worth checking through the season.
+                            Simple checks are as common as making sure the pump lid o-ring is
+                            properly lubricated. Products like Jack's Lube or Magic...
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="tips-card">
+
+                    <a href="#" class="tips-image">
+                        <img src="assets/img/sp-04-e.jpg" alt="Pool Maitenance FAQ">
+                    </a>
+
+                    <div class="tips-content">
+
+                        <h4>
+                            <a href="#">
+                                Pool Maintenance FAQ
+                            </a>
+                        </h4>
+
+                        <p>
+                            My pool has a bathtub ring... Floating oils, dirt & waste can combine to form a scum line around the pool; 
+                            this is why tile, an easily cleanable surface, is placed at water level around the...
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="tips-card">
+
+                    <a href="#" class="tips-image">
+                        <img src="assets/img/sp-03-e.jpg" alt="Spring Pool Opening Tips">
+                    </a>
+
+                    <div class="tips-content">
+
+                        <h4>
+                            <a href="#">
+                                Spring Pool Opening Tips
+                            </a>
+                        </h4>
+
+                        <p>
+                            Opening your swimming pool for the spring can be a lot of work to do on your own. 
+                            You can often save moneby by doing some of the work yourself, i.e., removing the 
+                            cover, or vacuuming the pool. Here is...
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="container">
+
+                    <h2 class="tips-title">
+                        Contact Us
+                    </h2>
+
+                    <form class="contact-form">
+                        
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                            required
+                        >
+
+                        <input
+                            type="tel"
+                            name="phone"
+                            placeholder="Phone"
+                            required
+                        >
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email Address"
+                            required
+                        >
+
+                        <div class="captcha-row">
+                            
+                            <label for="captcha">
+                                4+7 =
+                            </label>
+
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            Submit
+                        </button>
+
+                    </form>
+
+            </div>
+
+        </section>
+
+        <section class="section contact" id="contact">
+
+             <div class="container">
+
+                <div class="footer-columns">
+
+                    <div class="footer-col">
+
+                        <h3>POOL AND SPA SERVICES</h3>
+                        <div class="footer-line"></div>
 
 
-<div class="container navbar">
-<div class="logo">Jupiter Pool Service</div>
+                        <p>Home</p>
+                        <p>About</p>
+                        <p>Contact Us</p>
+                        <p>Pool Articles</p>
+                        <p>Services</p>
+                        <p>Pool Cleaning</p>
+                        <p>Pool Maintenance</p>
+                        <p>Pool Repair</p>
 
-<nav class="nav-links">
-<a href="#home">Home</a>
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#blog">Blog</a>
-<a href="#contact">Contact</a>
-</nav>
-</div>
-</header>
+                    </div>
 
-<section class="hero" id="home">
-<div class="hero-overlay">
-<div class="container">
+                    <div class="footer-col">
 
-<h1>Pool Cleaning, Repair & Maintenance</h1>
+                        <h3>POOL CLEANING TOPICS</h3>
+                        <div class="footer-line"></div>
 
-<p>
-Professional pool care services in Jupiter and surrounding areas.
-Keep your pool clean, safe, and ready to enjoy all year long.
-</p>
+                            <div class="topic-links">
 
-<a href="#contact" class="btn">Get Free Estimate</a>
+                                <a href="#">Jupiter Pool Cleaners</a>
 
-</div>
-</div>
-</section>
+                                <a href="#">Jupiter Pool Cleaning</a>
 
-<section class="section" id="services">
+                                <a href="#">Jupiter Pool Maintenance</a>
 
-<div class="container">
+                                <a href="#">Jupiter Pool Tips</a>
 
-<h2 class="section-title">Our Services</h2>
+                                <a href="#">Pool Checkups</a>
 
-<div class="cards">
+                                <a href="#">Pool Cleaning Tips</a>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1576013551627-0cf7d3f31f0f?auto=format&fit=crop&w=800&q=80">
-<div class="card-content">
-<h3>Pool Cleaning</h3>
-<p>
-Regular pool cleaning, water balancing, debris removal,
-and routine inspections.
-</p>
-</div>
-</div>
+                            </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80">
-<div class="card-content">
-<h3>Pool Repair</h3>
-<p>
-Pump repair, filter replacement, leak detection,
-equipment diagnostics and troubleshooting.
-</p>
-</div>
-</div>
+                    </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=800&q=80">
-<div class="card-content">
-<h3>Pool Maintenance</h3>
-<p>
-Preventive maintenance programs to keep your pool
-running efficiently all year.
-</p>
-</div>
-</div>
+                    <div class="footer-col">
 
-</div>
-</div>
+                        <h3>CONTACT US TODAY!</h3>
+                        <div class="footer-line"></div>
+                            <div class="contact-info">
 
-</section>
+                                <p>5500 Military Trail #22</p>
 
-<section class="section">
+                                <p>Jupiter, FL 33458</p>
 
-<div class="container">
+                                <br>
 
-<h2 class="section-title">Why Choose Us</h2>
+                                <p>561-203-1900</p>
 
-<div class="features">
+                            </div>
 
-<div class="feature">
-<h3>Experienced Team</h3>
-<p>Professional and dependable service.</p>
-</div>
+                    </div>
 
-<div class="feature">
-<h3>Fast Response</h3>
-<p>Quick scheduling and support.</p>
-</div>
+                </div>
 
-<div class="feature">
-<h3>Affordable Pricing</h3>
-<p>Competitive rates with quality results.</p>
-</div>
+            </div>
 
-<div class="feature">
-<h3>Customer Satisfaction</h3>
-<p>Focused on long-term client relationships.</p>
-</div>
+        </section>
 
-</div>
+        <footer>
 
-</div>
+        <p>
+        © 2026 All Rights Reserved. www.jupiterpoolcleaners.com
+        </p>
 
-</section>
+        </footer>
 
-<section class="section service-area">
+        <script>
+            const hamburger = document.getElementById("hamburger");
+            const mobileMenu = document.getElementById("mobileMenu");
 
-<div class="container">
+            hamburger.addEventListener("click", () => {
+                mobileMenu.classList.toggle("active");
+            });
+        </script>
 
-<h2 class="section-title">Service Areas</h2>
+        <script>
+            const form = document.querySelector(".contact-form");
 
-<div class="area-grid">
+            form.addEventListener("submit", function(e){
 
-<div class="area">Jupiter</div>
-<div class="area">Palm Beach Gardens</div>
-<div class="area">Tequesta</div>
-<div class="area">Juno Beach</div>
-<div class="area">West Palm Beach</div>
+                const answer =
+                    document.getElementById("captcha").value;
 
-</div>
+                if(answer != "11"){
 
-</div>
+                    e.preventDefault();
 
-</section>
+                    alert(
+                        "Incorrect answer. Please solve the math problem."
+                    );
 
-<section class="section" id="blog">
+                }
 
-<div class="container">
+            });
+        </script>
 
-<h2 class="section-title">Pool Tips & Resources</h2>
-
-<div class="cards">
-
-<div class="card">
-<div class="card-content">
-<h3>Seasonal Pool Checkups</h3>
-<p>
-Prepare your pool for every season with routine inspections
-and maintenance.
-</p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>Pool Maintenance FAQ</h3>
-<p>
-Answers to common questions about pool ownership,
-cleaning and upkeep.
-</p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>Spring Pool Opening Tips</h3>
-<p>
-Helpful steps for opening your pool safely and efficiently.
-</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section contact" id="contact">
-
-<div class="container">
-
-<h2>Need Pool Service Today?</h2>
-
-<p>
-Call us today for pool cleaning, repairs, and maintenance.
-</p>
-
-<div class="phone">561-203-1900</div>
-
-<a href="tel:5612031900" class="btn">
-Call Now
-</a>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>
-© 2026 Jupiter Pool Service. All Rights Reserved.
-</p>
-
-</footer>
-
-</body>
+    </body>
 </html>
